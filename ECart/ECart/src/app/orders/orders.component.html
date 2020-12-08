@@ -13,7 +13,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
                             <a class="dropdown-item" href="#" (click)="toggleCriteria('delivered')">Delivered Orders</a>
-                            <a class="dropdown-item" href="#" (click)="toggleCriteria('returned'">Returned Orders</a>
+                            <a class="dropdown-item" href="#" (click)="toggleCriteria('returned')">Returned Orders</a>
                             <a class="dropdown-item" href="#" (click)="toggleCriteria('cancelled')">Cancelled Orders</a>
                             <a class="dropdown-item" href="#" (click)="toggleCriteria('all')">Cancelled Orders</a>
                         </div>
@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <div class=" card mx-auto " style="margin-top:2%; width: 80%; " *ngFor="let order of (orders | orderFilterPipe:orderFilterCriteria) ">
+    <div class=" card mx-auto " style="margin-top:2%; width: 80%; " *ngFor="let order of (orders | orderFilterPipe:filterCriteria) ">
         <div class="card-title ">
             <h4 style="margin-left: 1%; ">Order Id: {{order.orderId}}</h4>
         </div>
