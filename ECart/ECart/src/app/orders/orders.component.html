@@ -1,0 +1,76 @@
+<div class="container-fluid">
+    <div class="card mx-auto" style="margin-top:2%; width: 80%;">
+        <div class="card-title">
+            <div class="row">
+                <div class="col">
+                    <h1 style="margin-left: 1%;">Orders</h1>
+                </div>
+                <div class="col">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" style="float: right; margin-top: 2%; margin-right: 1%;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Sort Orders By
+                    </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                            <a class="dropdown-item" href="#" (click)="toggleCriteria('delivered')">Delivered Orders</a>
+                            <a class="dropdown-item" href="#" (click)="toggleCriteria('returned'">Returned Orders</a>
+                            <a class="dropdown-item" href="#" (click)="toggleCriteria('cancelled')">Cancelled Orders</a>
+                            <a class="dropdown-item" href="#" (click)="toggleCriteria('all')">Cancelled Orders</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class=" card mx-auto " style="margin-top:2%; width: 80%; " *ngFor="let order of (orders | orderFilterPipe:orderFilterCriteria) ">
+        <div class="card-title ">
+            <h4 style="margin-left: 1%; ">Order Id: {{order.orderId}}</h4>
+        </div>
+        <div class="card-body ">
+            <div class="row ">
+                <div class="col-sm-4 ">
+                    <img [src]="order.orderId " height="300 " width="300 ">
+                </div>
+                <div class="col ">
+                    <div class="row ">
+                        <h3> {{order.displayName}}</h3>
+                    </div>
+                    <div class="row ">
+                        <h5>Status : {{order.orderStatus}}</h5>
+                    </div>
+                    <div class="row ">
+                        <h5>Ordered On : {{order.orderedDate}}</h5>
+                    </div>
+                    <div class="row ">
+                        <h5>Payment Mode: {{order.paymentMode}}</h5>
+                    </div>
+                    <div class="row ">
+                        <h5>Price of Item: {{order.price}}</h5>
+                    </div>
+                    <div class="row ">
+                        <h5>Quantity : {{order.quantity}}</h5>
+                    </div>
+                    <div class="row ">
+                        <h5>Total Paid Amount : {{order.totaPrice}}</h5>
+                    </div>
+                    <div class="row ">
+                        <div class="col ">
+                            <button class="btn btn-secondary " *ngIf="order.btnReturn">Return Order</button>
+                        </div>
+                        <div class="col ">
+                            <button class="btn btn-secondary " *ngIf="order.btnCancel">Cancel Order</button>
+                        </div>
+                        <div class="col ">
+                            <button class="btn btn-secondary " *ngIf="order.btnReviewSeller">Review Seller</button>
+                        </div>
+                        <div class="col ">
+                            <button class="btn btn-secondary " *ngIf="order.btnReviewProduct">Review Product</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
