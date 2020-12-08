@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: jival
+Build-Jdk: 11.0.8
+Implementation-Title: EKart_UserMS
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.infy.ekart
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/UserMS
+Created-By: Maven Integration for Eclipse
+
